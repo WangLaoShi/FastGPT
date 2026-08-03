@@ -63,6 +63,12 @@ describe('sandbox volume service', () => {
     expect(getSessionVolumeClaimName(buildVolumeConfig(claimName).storage)).toBe(claimName);
   });
 
+  it('generates a short prefixed claimName when no generation is provided', () => {
+    const claimName = createSessionVolumeClaimName({ sandboxId: 'ABC123' });
+
+    expect(claimName).toMatch(/^fastgpt-session-abc123-[a-f0-9]{8}$/);
+  });
+
   it('ensures an exact claimName with auth header', async () => {
     const fetchMock = vi.fn(async () => ({
       ok: true,

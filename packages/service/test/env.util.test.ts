@@ -114,7 +114,7 @@ describe('validateS3Env', () => {
 });
 
 describe('env util', () => {
-  it('requires opensandbox volume manager env when opensandbox provider is enabled', () => {
+  it('requires opensandbox image and volume manager env when opensandbox provider is enabled', () => {
     expect(
       getAgentSandboxMissingRequiredEnvKeys({
         AGENT_SANDBOX_PROVIDER: 'opensandbox',
@@ -122,6 +122,7 @@ describe('env util', () => {
         AGENT_SANDBOX_OPENSANDBOX_API_KEY: 'opensandbox-key'
       } as NodeJS.ProcessEnv)
     ).toEqual([
+      'AGENT_SANDBOX_OPENSANDBOX_IMAGE',
       'AGENT_SANDBOX_OPENSANDBOX_VOLUME_MANAGER_URL',
       'AGENT_SANDBOX_OPENSANDBOX_VOLUME_MANAGER_TOKEN'
     ]);

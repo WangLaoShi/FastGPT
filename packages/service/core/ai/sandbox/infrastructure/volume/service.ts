@@ -12,7 +12,7 @@ import type { SandboxStorageType } from '../../type';
 import { getVolumeManagerEnvConfig } from './config';
 
 const SESSION_VOLUME_NAME_PREFIX = 'fastgpt-session';
-const SESSION_VOLUME_GENERATION_LENGTH = 12;
+const SESSION_VOLUME_GENERATION_LENGTH = 8;
 
 export type VolumeManagerResult = {
   volumes: OpenSandboxConfigType['volumes'];
